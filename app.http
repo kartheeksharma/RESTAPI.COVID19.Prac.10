@@ -1,0 +1,60 @@
+
+//1.LoginAPI 
+//scenario1//Invalid user
+//scenario2//invalid password
+//scenario3//successful login-jwtToken 
+POST http://localhost:3001/login/ 
+Content-Type: application/json 
+
+{
+  "username": "christopher_phillips",
+  "password": "christy@123"
+}
+
+//{"jwtToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNocmlzdG9waGVyX3BoaWxsaXBzIiwiaWF0IjoxNzAzMTU3NzM2fQ.bICaFZfTYVevbXORCvHxeJUIc2lTis391jXe3BZstLc"}
+
+###
+//2.List of all states 
+GET http://localhost:3001/states/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNocmlzdG9waGVyX3BoaWxsaXBzIiwiaWF0IjoxNzAzMTU3NzM2fQ.bICaFZfTYVevbXORCvHxeJUIc2lTis391jXe3BZstLc
+
+###
+//3.State based on state Id 
+GET http://localhost:3001/states/8/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNocmlzdG9waGVyX3BoaWxsaXBzIiwiaWF0IjoxNzAzMTU3NzM2fQ.bICaFZfTYVevbXORCvHxeJUIc2lTis391jXe3BZstLc
+###
+//4.Create Districts 
+POST http://localhost:3001/districts/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNocmlzdG9waGVyX3BoaWxsaXBzIiwiaWF0IjoxNzAzMTU3NzM2fQ.bICaFZfTYVevbXORCvHxeJUIc2lTis391jXe3BZstLc
+
+###
+//5.District based on districtId
+GET http://localhost:3001/districts/322/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNocmlzdG9waGVyX3BoaWxsaXBzIiwiaWF0IjoxNzAzMTU3NzM2fQ.bICaFZfTYVevbXORCvHxeJUIc2lTis391jXe3BZstLc
+
+###
+//6.Delete district based on districtId 
+DELETE http://localhost:3001/districts/32/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNocmlzdG9waGVyX3BoaWxsaXBzIiwiaWF0IjoxNzAzMTU3NzM2fQ.bICaFZfTYVevbXORCvHxeJUIc2lTis391jXe3BZstLc
+
+###
+//7.Updates details of specific district basedon districtId
+PUT http://localhost:3001/districts/3/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNocmlzdG9waGVyX3BoaWxsaXBzIiwiaWF0IjoxNzAzMTU3NzM2fQ.bICaFZfTYVevbXORCvHxeJUIc2lTis391jXe3BZstLc
+Content-Type: application/json
+
+{
+  "districtName": "Nadia",
+  "stateId": 3,
+  "cases": 9628,
+  "cured": 6524,
+  "active": 3000,
+  "deaths": 104
+}
+
+###
+//8.Returns the statistics of total cases, cured, active, deaths 
+//of a specific state based on state ID
+GET http://localhost:3001/states/10/stats/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNocmlzdG9waGVyX3BoaWxsaXBzIiwiaWF0IjoxNzAzMTU3NzM2fQ.bICaFZfTYVevbXORCvHxeJUIc2lTis391jXe3BZstLc
+
